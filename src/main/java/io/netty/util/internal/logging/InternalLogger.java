@@ -10,6 +10,6 @@ public interface InternalLogger {
     boolean isTraceEnabled();
 
     void trace(String msg);
-
+    void debug(String msg);
 
 }
