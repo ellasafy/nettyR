@@ -5,6 +5,9 @@ package io.netty.util.internal.logging;
  */
 public abstract class InternalLoggerFactory {
 
+    private static volatile InternalLoggerFactory defaultFactory =
+            newDefaultFactory(InternalLoggerFactory.class.getName());
+
     private static InternalLoggerFactory newDefaultFactory(String name){
         InternalLoggerFactory f;
 
@@ -25,4 +28,15 @@ public abstract class InternalLoggerFactory {
 
     protected abstract InternalLogger newInstance(String name);
 
+    public static InternalLogger getInstance(String name){
+        return getDefaultFactory().newInstance(name);
+    }
+
+    public static InternalLogger getInstance(Class<?> clazz){
+        return getInstance(clazz.getName());
+    }
+
+    public static InternalLoggerFactory getDefaultFactory(){
+        return defaultFactory;
+    }
 }

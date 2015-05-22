@@ -71,4 +71,15 @@ class JdkLogger extends AbstractInternalLogger {
             log(SELF,Level.FINE,msg,null);
         }
     }
+
+    public void warn(String msg){
+        if(logger.isLoggable(Level.WARNING)){
+            log(SELF,Level.WARNING,msg, null);
+        }
+    }
+    public void warn(String msg, Throwable e){
+        if(logger.isLoggable(Level.WARNING)){
+            log(SELF,Level.WARNING,msg, e);
+        }
+    }
 }

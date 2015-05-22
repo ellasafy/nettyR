@@ -47,4 +47,11 @@ public class Log4JLogger extends AbstractInternalLogger {
     public void trace(String msg){
         logger.log(FQCN, traceCapable?Level.TRACE:Level.DEBUG,msg,null);
     }
+
+    public void warn(String msg){
+        logger.log(FQCN, Level.WARN,msg,null);
+    }
+    public void warn(String msg,Throwable e){
+        logger.log(FQCN, Level.WARN,msg,e);
+    }
 }

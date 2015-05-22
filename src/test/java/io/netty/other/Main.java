@@ -2,20 +2,37 @@ package io.netty.other;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 /**
  * Created by jianchanglun on 2015/5/12.
  */
-public class Main {
+public class Main extends  Ab2{
 
-    @Test
-    public void test(){
-        ConcurrentMap<String, Integer> map = new ConcurrentHashMap<String, Integer>();
+    public void sort(int[] a, int index){
+        if(index == a.length -1){
+            return;
+        }
+        int tmp = a[index];
+        for(int i=index+1;i<a.length;i++){
+            int[] b = new int[a.length];
+            copy(a,b);
 
-        map.put("str",1);
-        Integer va = map.putIfAbsent("str",2);
-        System.out.println(va);
+        }
+    }
+
+    public void print(int[] a){
+        for(int i=0;i<a.length -1;i++){
+            System.out.print(a[i]);
+        }
+        System.out.println();
+    }
+
+    public void copy(int[] a, int[] b) {
+        for(int i=0;i<a.length;i++){
+            b[i]=a[i];
+        }
     }
 }

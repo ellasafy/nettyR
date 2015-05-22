@@ -43,5 +43,9 @@ public class Slf4JLoggerFactory extends InternalLoggerFactory {
         }
     }
 
+    public InternalLogger newInstance(String name){
+        return new Slf4JLogger(LoggerFactory.getLogger(name));
+    }
+
 
 }
