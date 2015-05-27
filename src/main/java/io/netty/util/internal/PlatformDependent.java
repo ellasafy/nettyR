@@ -11,7 +11,7 @@ public final class PlatformDependent {
 
 
     private static boolean hashUnsafe(){
-        boolean noUnsafe = SystemPropertyUtil.getBoolean()
+        boolean noUnsafe = SystemPropertyUtil.getBoolean();
     }
 
     private static boolean isAndroid0(){

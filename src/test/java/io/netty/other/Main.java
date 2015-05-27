@@ -2,6 +2,10 @@ package io.netty.other;
 
 import org.junit.Test;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.net.Socket;
+import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -11,28 +15,24 @@ import java.util.concurrent.ConcurrentMap;
  */
 public class Main extends  Ab2{
 
-    public void sort(int[] a, int index){
-        if(index == a.length -1){
-            return;
-        }
-        int tmp = a[index];
-        for(int i=index+1;i<a.length;i++){
-            int[] b = new int[a.length];
-            copy(a,b);
+   public static void main(String[] args){
+       int[] a = new int[]{2,7,11,15};
+       ByteBuffer
+       int n = 9;
 
-        }
-    }
+       int i=0;
+       int j =a.length -1;
 
-    public void print(int[] a){
-        for(int i=0;i<a.length -1;i++){
-            System.out.print(a[i]);
-        }
-        System.out.println();
-    }
+       while(i<j){
+           if(a[i] + a[j] > n){
+               j--;
+           }else if(a[i] + a[j] <n){
+               i++;
+           }else{
+               break;
+           }
 
-    public void copy(int[] a, int[] b) {
-        for(int i=0;i<a.length;i++){
-            b[i]=a[i];
-        }
-    }
+       }
+       System.out.println(i + " " + j);
+   }
 }
