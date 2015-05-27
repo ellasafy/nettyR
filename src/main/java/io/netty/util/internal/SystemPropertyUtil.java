@@ -98,4 +98,8 @@ public class SystemPropertyUtil {
             Logger.getLogger(SystemPropertyUtil.class.getName()).log(Level.WARNING,msg);
         }
     }
+
+    public static boolean contains(String key) {
+        return get(key) != null;
+    }
 }

@@ -9,8 +9,12 @@ public interface InternalLogger {
 
     boolean isTraceEnabled();
 
+    boolean isDebugEnabled();
+
     void trace(String msg);
     void debug(String msg);
+    void debug(String format, Object arg);
+
 
     void warn(String msg);
     void warn(String msg, Throwable t);

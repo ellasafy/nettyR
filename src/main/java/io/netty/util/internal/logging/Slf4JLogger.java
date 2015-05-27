@@ -21,12 +21,19 @@ public class Slf4JLogger extends AbstractInternalLogger {
         return logger.isTraceEnabled();
     }
 
+    public boolean isDebugEnabled() {
+        return logger.isDebugEnabled();
+    }
     public void trace(String msg){
         logger.trace(msg);
     }
 
     public void debug(String msg) {
         logger.debug(msg);
+    }
+
+    public void debug(String format, Object arg) {
+          logger.debug(format, arg);
     }
 
     public void warn(String msg){

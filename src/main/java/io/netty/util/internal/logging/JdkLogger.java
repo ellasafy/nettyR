@@ -22,6 +22,10 @@ class JdkLogger extends AbstractInternalLogger {
         return logger.isLoggable(Level.FINEST);
     }
 
+    public boolean isDebugEnabled() {
+        return logger.isLoggable(Level.FINE);
+    }
+
     private void log(String callerFQCn,Level level, String msg, Throwable t){
         LogRecord record = new LogRecord(level,msg);
         record.setLoggerName(name());
@@ -69,6 +73,12 @@ class JdkLogger extends AbstractInternalLogger {
     public void debug(String msg){
         if(logger.isLoggable(Level.FINE)){
             log(SELF,Level.FINE,msg,null);
+        }
+    }
+    public void debug(String format, Object arg) {
+        if(logger.isLoggable(Level.FINE )) {
+            FormattingTuple ft = MessageFormatter.format(format, arg);
+            log(SELF, Level.FINE, ft.getMessage(), ft.getThrowable());
         }
     }
 

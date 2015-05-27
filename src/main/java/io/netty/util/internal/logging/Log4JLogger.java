@@ -40,8 +40,33 @@ public class Log4JLogger extends AbstractInternalLogger {
         }
     }
 
+
+    private boolean isDebugCapable() {
+        try {
+            logger.isDebugEnabled();
+            return true;
+        }catch(NoSuchMethodError ignored){
+            return false;
+        }
+    }
+
+    public boolean isDebugEnabled() {
+         if (isDebugCapable()) {
+             return logger.isDebugEnabled();
+         } else {
+             return logger.isDebugEnabled();
+         }
+    }
+
     public void debug(String msg){
         logger.log(FQCN, Level.DEBUG,msg,null);
+    }
+
+    public void debug(String format, Object arg) {
+        if (logger.isDebugEnabled() ) {
+            FormattingTuple ft = MessageFormatter.format(format, arg);
+            logger.log(FQCN, Level.DEBUG, ft.getMessage(), ft.getThrowable());
+        }
     }
 
     public void trace(String msg){
