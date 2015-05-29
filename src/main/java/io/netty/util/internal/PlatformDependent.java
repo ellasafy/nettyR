@@ -4,6 +4,7 @@ import io.netty.util.internal.logging.InternalLogger;
 import io.netty.util.internal.logging.InternalLoggerFactory;
 
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * Created by jianchanglun on 2015/5/12.
@@ -150,5 +151,11 @@ public final class PlatformDependent {
 
     public static boolean isAndroid() {
         return IS_ANDROID;
+    }
+
+    public static <K,V> ConcurrentMap<K,V> newConcurrentHashMap() {
+        if (CAN_USE_CHM_V8) {
+            return new ConcurrrentHashMapV8<K,V>();
+        }
     }
 }

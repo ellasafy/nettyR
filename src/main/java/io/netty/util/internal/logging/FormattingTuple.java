@@ -1,5 +1,7 @@
 package io.netty.util.internal.logging;
 
+import java.util.concurrent.Executors;
+
 /**
  * Created by jianchanglun on 2015/5/27.
  */
@@ -33,6 +35,8 @@ class FormattingTuple {
         final int trimemdLen = argArray.length -1;
         Object[] trimmed = new Object[trimemdLen];
         System.arraycopy(argArray,0,trimmed, 0, trimemdLen);
+
+
         return trimmed;
     }
 

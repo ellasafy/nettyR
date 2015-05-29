@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class AttributeKey<T> extends UniqueName {
 
-    private static final AtomicInteger nextId = new AtomicInteger();
+    private static final ConcurrentMap<String, AttributeKey> names = PlatformDependent.
 
 
 }
